@@ -1,0 +1,16 @@
+services:
+  gimp:
+    image: lscr.io/linuxserver/gimp:latest
+    container_name: gimp
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=Europe/Lisbon
+    volumes:
+      - ./config:/config
+    ports:
+      - ${GIMP_PORT}:3000 # HTTP
+      # - 3001:3001 # HTTPS
+    restart: unless-stopped

@@ -1,0 +1,2 @@
+- vaultwarden
+- uptime-kuma
