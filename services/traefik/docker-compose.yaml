@@ -15,7 +15,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /var/run/tailscale/tailscaled.sock:/var/run/tailscale/tailscaled.sock:ro
-      - ./data/traefik.yaml:/traefik.yml:ro
+      - ./config/traefik.yaml:/traefik.yml:ro
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik-secure.entrypoints=https"

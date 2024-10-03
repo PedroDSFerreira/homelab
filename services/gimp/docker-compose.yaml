@@ -9,7 +9,7 @@ services:
       - PGID=${PGID}
       - TZ=Europe/Lisbon
     volumes:
-      - ./config:/config
+      - ./data:/config
     ports:
       - ${GIMP_PORT}:3000 # HTTP
       # - 3001:3001 # HTTPS
