@@ -1,0 +1,55 @@
+pages:
+  - name: Home
+    columns:
+      - size: small
+        widgets:
+          - type: calendar
+
+          - type: weather
+            location: Aveiro, Portugal
+
+      - size: full
+        widgets:
+          - type: rss
+            limit: 15
+            collapse-after: 6
+            cache: 3h
+            feeds:
+              - url: https://world.hey.com/dhh/feed.atom
+                title: DHH
+              - url: https://blog.pragmaticengineer.com/rss/
+                title: The Pragmatic Engineer
+              - url: https://martinfowler.com/feed.atom
+                title: Martin Fowler
+              # - url: https://dev.to/feed
+              #   title: Dev.to
+              # - url: http://www.producthunt.com/feed
+              #   title: Product Hunt
+
+          - type: hacker-news
+            limit: 15
+            collapse-after: 3
+
+          # - type: videos
+          #   channels:
+          #     - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
+          #     - UCv6J_jJa8GJqFwQNgNrMuww # ServeTheHome
+          #     - UCOk-gHyjcWZNj3Br4oxwh0A # Techno Tim
+
+          # - type: reddit
+          #   subreddit: selfhosted
+
+      - size: small
+        widgets:
+          - type: markets
+            markets:
+              - symbol: BTC-EUR
+                name: Bitcoin
+              - symbol: ETH-EUR
+                name: Ethereum
+              - symbol: SOL-EUR
+                name: Solana
+              - symbol: DOGE-EUR
+                name: Doge
+              - symbol: SPY
+                name: S&P 500
