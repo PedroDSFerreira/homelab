@@ -15,3 +15,7 @@ services:
     restart: unless-stopped
     privileged: true
     network_mode: host
+    labels:
+      tsdproxy.enable: "true"
+      tsdproxy.name: "home-assistant"
+      tsdproxy.port: 8123

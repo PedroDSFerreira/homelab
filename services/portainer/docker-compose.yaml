@@ -5,7 +5,7 @@ services:
     restart: always
     ports:
       # - "${PORTAINER_PORT}:9443"  # HTTPS
-      - "${PORTAINER_PORT}:9000"  # HTTP
+      - "9000:9000"  # HTTP
     healthcheck:
       test: "wget --no-verbose --tries=1 --spider http://localhost:9000 || exit 1"
       interval: 60s
@@ -15,3 +15,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data:/data
+    labels:
+      tsdproxy.enable: "true"
+      tsdproxy.name: "portainer"

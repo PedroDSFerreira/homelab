@@ -5,4 +5,7 @@ services:
     restart: unless-stopped
     ports:
       - ${IT_TOOLS_PORT}:80
+    labels:
+      tsdproxy.enable: "true"
+      tsdproxy.name: "it-tools"
 

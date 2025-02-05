@@ -1,6 +1,24 @@
 pages:
-  - name: Home
+  - name: Dashboard
     columns:
+      - size: full
+        widgets:
+          - type: bookmarks
+            groups:
+              - links:
+                  - title: Gmail
+                    url: https://mail.google.com/mail/u/0/
+                  - title: Github
+                    url: https://github.com/
+              - title: Entertainment
+                links:
+                  - title: YouTube
+                    url: https://www.youtube.com/
+              - title: Social
+                links:
+                  - title: Reddit
+                    url: https://www.reddit.com/
+
       - size: small
         widgets:
           - type: calendar
@@ -8,6 +26,21 @@ pages:
           - type: weather
             location: Aveiro, Portugal
 
+          - type: markets
+            markets:
+              - symbol: BTC-EUR
+                name: Bitcoin
+              - symbol: ETH-EUR
+                name: Ethereum
+              - symbol: SOL-EUR
+                name: Solana
+              - symbol: DOGE-EUR
+                name: Doge
+              - symbol: SPY
+                name: S&P 500
+
+  - name: News
+    columns:
       - size: full
         widgets:
           - type: rss
@@ -38,18 +71,3 @@ pages:
 
           # - type: reddit
           #   subreddit: selfhosted
-
-      - size: small
-        widgets:
-          - type: markets
-            markets:
-              - symbol: BTC-EUR
-                name: Bitcoin
-              - symbol: ETH-EUR
-                name: Ethereum
-              - symbol: SOL-EUR
-                name: Solana
-              - symbol: DOGE-EUR
-                name: Doge
-              - symbol: SPY
-                name: S&P 500

@@ -6,5 +6,8 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
-      - ${GLANCE_PORT}:8080
+      - 8001:8080
     restart: unless-stopped
+    labels:
+      tsdproxy.enable: "true"
+      tsdproxy.name: "glance"

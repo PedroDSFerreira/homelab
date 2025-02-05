@@ -10,3 +10,6 @@ services:
       - ./data/data:/data
     ports:
       - '${HOMARR_PORT}:7575'
+    labels:
+      tsdproxy.enable: "true"
+      tsdproxy.name: "homarr"
