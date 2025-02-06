@@ -18,4 +18,4 @@ services:
     labels:
       tsdproxy.enable: "true"
       tsdproxy.name: "home-assistant"
-      tsdproxy.port: 8123
+      tsdproxy.container_port: 8123
