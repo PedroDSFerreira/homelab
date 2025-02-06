@@ -42,6 +42,10 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    labels:
+      tsdproxy.enable: "true"
+      tsdproxy.name: "n8n"
+
 
 volumes:
   n8n_db_storage:
