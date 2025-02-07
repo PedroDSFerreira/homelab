@@ -17,5 +17,5 @@ services:
     network_mode: host
     labels:
       tsdproxy.enable: "true"
-      tsdproxy.name: "home-assistant"
+      tsdproxy.name: "homeassistant"
       tsdproxy.container_port: 8123

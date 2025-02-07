@@ -1,6 +1,7 @@
 services:
   glance:
     image: glanceapp/glance
+    container_name: glance
     volumes:
       - ./config/glance.yml:/app/glance.yml
       - /etc/timezone:/etc/timezone:ro

@@ -1,6 +1,7 @@
 services:
   tsdproxy:
     image: almeidapaulopt/tsdproxy:latest
+    container_name: tsd-proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - datadir:/data
