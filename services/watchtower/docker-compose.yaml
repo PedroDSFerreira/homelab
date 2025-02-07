@@ -1,10 +1,10 @@
 services:
   watchtower:
     restart: unless-stopped
+    container_name: watchtower
     image: containrrr/watchtower
     environment:
       WATCHTOWER_CLEANUP: "true"
       WATCHTOWER_POLL_INTERVAL: 7200 # checks for updates every two hours
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-
