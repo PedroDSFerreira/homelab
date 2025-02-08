@@ -3,7 +3,9 @@ services:
     container_name: homeassistant
     image: "ghcr.io/home-assistant/home-assistant:stable"
     volumes:
-      - ./data/:/config
+      - homeassistant_data:/config
+      - ./config/configuration.yaml:/config/configuration.yaml
+      - ./config/automations.yaml:/config/automations.yaml
       - /etc/localtime:/etc/localtime:ro
       - /run/dbus:/run/dbus:ro
     healthcheck:
@@ -19,3 +21,6 @@ services:
       tsdproxy.enable: "true"
       tsdproxy.name: "homeassistant"
       tsdproxy.container_port: 8123
+
+volumes:
+  homeassistant_data:

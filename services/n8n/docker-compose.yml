@@ -1,6 +1,7 @@
 services:
   postgres:
     image: postgres:16
+    container_name: n8n-db
     restart: always
     environment:
       - POSTGRES_USER
@@ -9,7 +10,7 @@ services:
       - POSTGRES_NON_ROOT_USER
       - POSTGRES_NON_ROOT_PASSWORD
     volumes:
-      - n8n_db_storage:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
       - ./init-data.sh:/docker-entrypoint-initdb.d/init-data.sh
     healthcheck:
       test:
@@ -39,7 +40,7 @@ services:
     links:
       - postgres
     volumes:
-      - n8n_storage:/home/node/.n8n
+      - data:/home/node/.n8n
     depends_on:
       postgres:
         condition: service_healthy
@@ -49,5 +50,5 @@ services:
 
 
 volumes:
-  n8n_db_storage:
-  n8n_storage:
+  db_data:
+  data:

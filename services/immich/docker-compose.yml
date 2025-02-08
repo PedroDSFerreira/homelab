@@ -2,7 +2,7 @@ name: immich
 
 services:
   immich-server:
-    container_name: immich_server
+    container_name: immich
     image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
     # extends:
     #   file: hwaccel.transcoding.yml
@@ -14,7 +14,7 @@ services:
     env_file:
       - .env
     ports:
-      - '2283:2283'
+      - "2283:2283"
     depends_on:
       - redis
       - database
@@ -25,9 +25,8 @@ services:
       tsdproxy.enable: "true"
       tsdproxy.name: "immich"
 
-
   immich-machine-learning:
-    container_name: immich_machine_learning
+    container_name: immich-ml
     # For hardware acceleration, add one of -[armnn, cuda, openvino] to the image tag.
     # Example tag: ${IMMICH_VERSION:-release}-cuda
     image: ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION:-release}
@@ -35,7 +34,7 @@ services:
     #   file: hwaccel.ml.yml
     #   service: cpu # set to one of [armnn, cuda, openvino, openvino-wsl] for accelerated inference - use the `-wsl` version for WSL2 where applicable
     volumes:
-      - model-cache:/cache
+      - model_cache:/cache
     env_file:
       - .env
     restart: always
@@ -43,23 +42,22 @@ services:
       disable: false
 
   redis:
-    container_name: immich_redis
+    container_name: immich-cache
     image: docker.io/redis:6.2-alpine@sha256:905c4ee67b8e0aa955331960d2aa745781e6bd89afc44a8584bfd13bc890f0ae
     healthcheck:
       test: redis-cli ping || exit 1
     restart: always
 
   database:
-    container_name: immich_postgres
+    container_name: immich-db
     image: docker.io/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_DB: ${DB_DATABASE_NAME}
-      POSTGRES_INITDB_ARGS: '--data-checksums'
+      POSTGRES_INITDB_ARGS: "--data-checksums"
     volumes:
-      # Do not edit the next line. If you want to change the database storage location on your system, edit the value of DB_DATA_LOCATION in the .env file
-      - ${DB_DATA_LOCATION}:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
     healthcheck:
       test: >-
         pg_isready --dbname="$${POSTGRES_DB}" --username="$${POSTGRES_USER}" || exit 1;
@@ -81,4 +79,5 @@ services:
     restart: always
 
 volumes:
-  model-cache:
+  model_cache:
+  db_data:

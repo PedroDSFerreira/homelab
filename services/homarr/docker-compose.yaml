@@ -4,12 +4,15 @@ services:
     image: ghcr.io/ajnart/homarr:latest
     restart: unless-stopped
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
-      - ./data/configs:/app/data/configs
-      - ./data/icons:/app/public/icons
-      - ./data/data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config/configs:/app/data/configs
+      - ./config/icons:/app/public/icons
+      - data:/data
     ports:
-      - '${HOMARR_PORT}:7575'
+      - "${HOMARR_PORT}:7575"
     labels:
       tsdproxy.enable: "true"
       tsdproxy.name: "homarr"
+
+volumes:
+  data:

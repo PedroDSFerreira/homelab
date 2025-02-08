@@ -8,7 +8,7 @@ services:
     ports:
       - 8090:8090
     volumes:
-      - ./data:/beszel_data
+      - data:/beszel_data
     labels:
       tsdproxy.enable: "true"
       tsdproxy.name: "beszel"
@@ -24,3 +24,6 @@ services:
       PORT: 45876
       # Do not remove quotes around the key
       KEY: ${AGENT_KEY}
+
+volumes:
+  data:
