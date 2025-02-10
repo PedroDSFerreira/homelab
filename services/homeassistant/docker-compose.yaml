@@ -16,11 +16,13 @@ services:
       start_period: 20s
     restart: unless-stopped
     privileged: true
+    environment:
+      - HOMEASSISTANT_PORT
     network_mode: host
     labels:
       tsdproxy.enable: "true"
       tsdproxy.name: "homeassistant"
-      tsdproxy.container_port: 8123
+      tsdproxy.container_port: ${HOMEASSISTANT_PORT}
 
 volumes:
   homeassistant_data:

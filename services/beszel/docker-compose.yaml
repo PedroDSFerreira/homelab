@@ -6,7 +6,7 @@ services:
     extra_hosts:
       - host.docker.internal:host-gateway
     ports:
-      - 8090:8090
+      - ${BESZEL_PORT}:8090
     volumes:
       - data:/beszel_data
     labels:

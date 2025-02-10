@@ -4,8 +4,7 @@ services:
     container_name: portainer
     restart: always
     ports:
-      # - "${PORTAINER_PORT}:9443"  # HTTPS
-      - "9000:9000"  # HTTP
+      - ${PORTAINER_PORT}:9000
     healthcheck:
       test: "wget --no-verbose --tries=1 --spider http://localhost:9000 || exit 1"
       interval: 60s

@@ -1,0 +1,17 @@
+services:
+  uptime-kuma:
+    image: "louislam/uptime-kuma:1"
+    container_name: uptime-kuma
+    volumes:
+      - data:/app/data
+    ports:
+      - ${UPTIME_KUMA_PORT}:3001
+    restart: always
+    labels:
+      tsdproxy.enable: "true"
+      tsdproxy.name: "uptime-kuma"
+      tsdproxy.container_port: ${UPTIME_KUMA_PORT}
+      tsdproxy.tsnet_verbose: "true"
+
+volumes:
+  data:

@@ -7,7 +7,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
-      - 8001:8080
+      - ${GLANCE_PORT}:8080
     restart: unless-stopped
     labels:
       tsdproxy.enable: "true"
