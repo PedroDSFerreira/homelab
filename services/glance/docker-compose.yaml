@@ -3,7 +3,7 @@ services:
     image: glanceapp/glance
     container_name: glance
     volumes:
-      - ./config/glance.yml:/app/glance.yml
+      - ./config:/app/config
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
