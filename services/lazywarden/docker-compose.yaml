@@ -1,0 +1,15 @@
+services:
+  lazywarden:
+    container_name: lazywarden
+    hostname: lazywarden
+    image: querylab/lazywarden:latest
+    environment:
+      UNLOCK_VAULT: "true"
+    volumes:
+      - ./config:/root/lazywarden/config
+      - backups:/root/lazywarden/backup-drive/
+      - ./.env:/app/.env
+    restart: unless-stopped
+
+volumes:
+  backups:
