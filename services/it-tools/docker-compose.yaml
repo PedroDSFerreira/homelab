@@ -8,4 +8,3 @@ services:
     labels:
       tsdproxy.enable: "true"
       tsdproxy.name: "it-tools"
-

@@ -4,7 +4,10 @@ services:
     container_name: watchtower
     image: containrrr/watchtower
     environment:
-      WATCHTOWER_CLEANUP: "true"
-      WATCHTOWER_POLL_INTERVAL: 7200 # checks for updates every two hours
+      - WATCHTOWER_CLEANUP
+      - WATCHTOWER_SCHEDULE
+      - WATCHTOWER_NOTIFICATIONS
+      - WATCHTOWER_NOTIFICATION_URL
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
+      - /etc/localtime:/etc/localtime:ro
