@@ -1,6 +1,6 @@
 # Homelab Services
 
-This repository contains configurations for multiple self-hosted services running in my tailnet ([https://tailscale.com/kb/1136/tailnet](https://tailscale.com/kb/1136/tailnet)).&#x20;
+This repository contains configurations for multiple self-hosted services running in my [tailnet](https://tailscale.com/kb/1136/tailnet).
 
 ## Services
 
