@@ -18,6 +18,7 @@ services:
     privileged: true
     environment:
       - HOMEASSISTANT_PORT
+      - PROXY_IP
     network_mode: host
     labels:
       tsdproxy.enable: "true"

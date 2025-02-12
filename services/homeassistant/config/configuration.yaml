@@ -5,4 +5,4 @@ http:
     - 127.0.0.1
     - ::1
     - 172.16.0.0/16
-    - 192.168.64.2 # change if necessary
+    - !env_var PROXY_IP
