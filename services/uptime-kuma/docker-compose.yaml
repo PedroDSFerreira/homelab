@@ -10,8 +10,6 @@ services:
     labels:
       tsdproxy.enable: "true"
       tsdproxy.name: "uptime-kuma"
-      tsdproxy.container_port: ${UPTIME_KUMA_PORT}
-      tsdproxy.tsnet_verbose: "true"
 
 volumes:
   data:

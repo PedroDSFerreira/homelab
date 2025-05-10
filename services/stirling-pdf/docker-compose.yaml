@@ -1,5 +1,6 @@
 services:
   stirling-pdf:
+    container_name: stirling-pdf
     image: ghcr.io/stirlingtools/stirling-pdf:latest
     ports:
       - ${STIRLING_PDF_PORT}:8080
@@ -12,6 +13,9 @@ services:
     environment:
       - DOCKER_ENABLE_SECURITY=false
       - LANGS=en_GB
+    labels:
+      tsdproxy.enable: "true"
+      tsdproxy.name: "stirling-pdf"
 
 volumes:
   trainingData:
