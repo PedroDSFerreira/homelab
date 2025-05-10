@@ -1,0 +1,22 @@
+services:
+  stirling-pdf:
+    image: ghcr.io/stirlingtools/stirling-pdf:latest
+    ports:
+      - ${STIRLING_PDF_PORT}:8080
+    volumes:
+      - trainingData:/usr/share/tessdata
+      - extraConfigs:/configs
+      - customFiles:/customFiles/
+      - logs:/logs/
+      - pipeline:/pipeline/
+    environment:
+      - DOCKER_ENABLE_SECURITY=false
+      - LANGS=en_GB
+
+volumes:
+  trainingData:
+  extraConfigs:
+  customFiles:
+  logs:
+  pipeline:
+
