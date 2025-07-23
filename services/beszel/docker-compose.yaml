@@ -10,7 +10,7 @@ services:
       - ./beszel_socket:/beszel_socket
     labels:
       tsdproxy.enable: "true"
-      tsdproxy.name: "beszel"
+      tsdproxy.name: "monitoring"
 
   beszel-agent:
     image: henrygd/beszel-agent:latest
