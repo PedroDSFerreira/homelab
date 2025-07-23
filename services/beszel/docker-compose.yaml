@@ -3,12 +3,11 @@ services:
     image: henrygd/beszel:latest
     container_name: beszel
     restart: unless-stopped
-    extra_hosts:
-      - host.docker.internal:host-gateway
     ports:
       - ${BESZEL_PORT}:8090
     volumes:
       - data:/beszel_data
+      - ./beszel_socket:/beszel_socket
     labels:
       tsdproxy.enable: "true"
       tsdproxy.name: "beszel"
@@ -19,10 +18,10 @@ services:
     restart: unless-stopped
     network_mode: host
     volumes:
+      - ./beszel_socket:/beszel_socket
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
-      PORT: 45876
-      # Do not remove quotes around the key
+      LISTEN: /beszel_socket/beszel.sock
       KEY: ${AGENT_KEY}
 
 volumes:
