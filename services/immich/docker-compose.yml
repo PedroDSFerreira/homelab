@@ -18,7 +18,7 @@ services:
     depends_on:
       - redis
       - database
-    restart: always
+    restart: unless-stopped
     healthcheck:
       disable: false
     labels:
@@ -37,7 +37,7 @@ services:
       - model_cache:/cache
     env_file:
       - .env
-    restart: always
+    restart: unless-stopped
     healthcheck:
       disable: false
 
@@ -46,7 +46,7 @@ services:
     image: docker.io/redis:6.2-alpine@sha256:905c4ee67b8e0aa955331960d2aa745781e6bd89afc44a8584bfd13bc890f0ae
     healthcheck:
       test: redis-cli ping || exit 1
-    restart: always
+    restart: unless-stopped
 
   database:
     container_name: immich-db
@@ -76,7 +76,7 @@ services:
       -c max_wal_size=2GB
       -c shared_buffers=512MB
       -c wal_compression=on
-    restart: always
+    restart: unless-stopped
 
 volumes:
   model_cache:

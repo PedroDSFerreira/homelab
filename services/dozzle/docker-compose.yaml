@@ -2,6 +2,7 @@ services:
   dozzle:
     container_name: dozzle
     image: amir20/dozzle:latest
+    restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
