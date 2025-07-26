@@ -1,24 +1,42 @@
 pages:
-  - name: Dashboard
+  - name: Homelab
     columns:
       - size: full
         widgets:
           - type: bookmarks
             groups:
-              - links:
-                  - title: Gmail
-                    url: https://mail.google.com/mail/u/0/
-                  - title: Github
-                    url: https://github.com/
-              - title: Entertainment
+              - title: Monitoring & Infrastructure
                 links:
-                  - title: YouTube
-                    url: https://www.youtube.com/
-              - title: Social
+                  - title: Dozzle
+                    url: https://dozzle.griffin-frog.ts.net/
+                  - title: Beszel
+                    url: https://beszel.griffin-frog.ts.net/
+                  # - title: Uptime Kuma
+                  #   url: https://uptime-kuma.griffin-frog.ts.net/
+              - title: Automation & Workflows
                 links:
-                  - title: Reddit
-                    url: https://www.reddit.com/
-
+                  - title: n8n
+                    url: https://n8n.griffin-frog.ts.net/
+                  - title: Home Assistant
+                    url: https://homeassistant.griffin-frog.ts.net/
+              - title: Data Management
+                links:
+                  - title: Ghostfolio
+                    url: https://ghostfolio.griffin-frog.ts.net/
+                  - title: Paperless‑ngx
+                    url: https://paperless-ngx.griffin-frog.ts.net/
+              - title: Media
+                links:
+                  - title: Immich
+                    url: https://immich.griffin-frog.ts.net/
+              - title: Miscellaneous
+                links:
+                  - title: Mazanoke
+                    url: https://mazanoke.griffin-frog.ts.net/
+                  - title: Stirling‑PDF
+                    url: https://stirling-pdf.griffin-frog.ts.net/
+                  - title: It‑Tools
+                    url: https://it-tools.griffin-frog.ts.net/
       - size: small
         widgets:
           - type: calendar
