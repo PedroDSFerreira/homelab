@@ -1,1 +1,50 @@
-[]
+- id: '1753393512055'
+  alias: 'On/Off Lamp #1'
+  description: ''
+  triggers:
+  - device_id: 7746c56c230b91ed955e7acba309c09b
+    domain: zha
+    type: remote_button_short_press
+    subtype: button_1
+    trigger: device
+  conditions: []
+  actions:
+  - type: toggle
+    device_id: 4fe507bc74923d992db6da0338629a1b
+    entity_id: 5693919e928ef14a65ae82839ad34e86
+    domain: switch
+  mode: single
+- id: '1753393879953'
+  alias: On/Off Bedroom
+  description: ''
+  triggers:
+  - device_id: 7746c56c230b91ed955e7acba309c09b
+    domain: zha
+    type: remote_button_double_press
+    subtype: button_1
+    trigger: device
+  conditions: []
+  actions:
+  - action: switch.toggle
+    metadata: {}
+    data: {}
+    target:
+      area_id: bedroom
+  mode: single
+- id: '1753393932263'
+  alias: Off Bedroom
+  description: ''
+  triggers:
+  - device_id: 7746c56c230b91ed955e7acba309c09b
+    domain: zha
+    type: remote_button_long_press
+    subtype: button_1
+    trigger: device
+  conditions: []
+  actions:
+  - action: switch.turn_off
+    metadata: {}
+    data: {}
+    target:
+      area_id: bedroom
+  mode: single

@@ -1,5 +1,6 @@
 recorder:
 mobile_app:
+automation: !include automations.yaml
 http:
   server_port: !env_var HOMEASSISTANT_PORT
   use_x_forwarded_for: true

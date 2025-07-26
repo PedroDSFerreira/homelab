@@ -3,9 +3,8 @@ services:
     container_name: homeassistant
     image: "ghcr.io/home-assistant/home-assistant:stable"
     volumes:
-      - data:/config
-      - ./config/configuration.yaml:/config/configuration.yaml
-      - ./config/automations.yaml:/config/automations.yaml
+      # - data:/config
+      - ./config:/config
       - /etc/localtime:/etc/localtime:ro
       - /run/dbus:/run/dbus:ro
     healthcheck:
