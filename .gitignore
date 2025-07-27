@@ -1,3 +1,4 @@
 data/
 .env
 tsdproxy.yaml
+*.sock

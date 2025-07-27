@@ -8,6 +8,10 @@ services:
     volumes:
       - data:/beszel_data
       - ./beszel_socket:/beszel_socket
+    healthcheck:
+      test: ['CMD', '/beszel', 'health', '--url', 'http://localhost:8090']
+      start_period: 5s
+      interval: 120s
     labels:
       tsdproxy.enable: "true"
       tsdproxy.name: "beszel"
@@ -20,9 +24,13 @@ services:
     volumes:
       - ./beszel_socket:/beszel_socket
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /mnt/storage/.beszel:/extra-filesystems/storage:ro
     environment:
       LISTEN: /beszel_socket/beszel.sock
       KEY: ${AGENT_KEY}
+    healthcheck:
+      test: ['CMD', '/agent', 'health']
+      interval: 120s
 
 volumes:
   data:

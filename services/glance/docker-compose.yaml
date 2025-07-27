@@ -9,6 +9,12 @@ services:
     ports:
       - ${GLANCE_PORT}:8080
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080"]
+      interval: 60s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
     labels:
       tsdproxy.enable: "true"
       tsdproxy.name: "glance"
