@@ -13,6 +13,3 @@ services:
       timeout: 30s
       retries: 5
       start_period: 30s
-    labels:
-      tsdproxy.enable: "true"
-      tsdproxy.name: "dozzle"
