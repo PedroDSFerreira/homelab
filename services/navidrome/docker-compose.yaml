@@ -1,0 +1,20 @@
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    container_name: navidrome
+    ports:
+      - "${NAVIDROME_PORT}:4533"
+    restart: unless-stopped
+    environment:
+      ND_BASEURL: "https://navidrome.griffin-frog.ts.net"
+      ND_LASTFM_APIKEY: ${ND_LASTFM_APIKEY}
+      ND_LASTFM_SECRET: ${ND_LASTFM_SECRET}
+    volumes:
+      - "data:/data"
+      - "/mnt/storage/music:/music:ro"
+    labels:
+      tsdproxy.enable: "true"
+      tsdproxy.name: "navidrome"
+
+volumes:
+  data:
