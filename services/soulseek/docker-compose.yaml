@@ -1,0 +1,23 @@
+services:
+  soulseek:
+    image: realies/soulseek
+    container_name: soulseek
+    restart: unless-stopped
+    environment:
+      - RESOLUTION=1920x1080
+    ports:
+      - "${SOULSEEK_PORT}:6080" # UI (browser -> noVNC)
+      - "61122:61122" # example Soulseek listening port (set inside app Options -> Login)
+      # - "61123:61123" # example obfuscated port
+    volumes:
+      - data:/data/.SoulseekQt
+      - /mnt/storage/music:/data/Soulseek Downloads
+      - /mnt/storage/music:/data/Soulseek Shared Folder
+      - logs:/data/Soulseek Chat Logs
+    labels:
+      tsdproxy.enable: "true"
+      tsdproxy.name: "soulseek"
+      tsdproxy.container_port: "${SOULSEEK_PORT}"
+volumes:
+  data:
+  logs:
