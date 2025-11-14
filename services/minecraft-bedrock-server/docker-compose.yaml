@@ -1,0 +1,20 @@
+services:
+  bds:
+    image: itzg/minecraft-bedrock-server
+    container_name: minecraft-bedrock-server
+    restart: unless-stopped
+    ports:
+      - ${MC_PORT}:19132/udp
+    env_file:
+        - .env
+    volumes:
+      - data:/data
+    stdin_open: true
+    tty: true
+    labels:
+      tsdproxy.enable: true
+      tsdproxy.name: "minecraft"
+      tsdproxy.funnel: true
+
+volumes:
+  data:
