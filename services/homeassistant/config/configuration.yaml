@@ -1,4 +1,7 @@
+history:
+logbook:
 recorder:
+  db_url: sqlite:////config/home-assistant_v2.db
 mobile_app:
 automation: !include automations.yaml
 http:
