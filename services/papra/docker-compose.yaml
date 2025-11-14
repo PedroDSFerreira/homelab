@@ -1,0 +1,17 @@
+services:
+  papra:
+    image: ghcr.io/papra-hq/papra:latest
+    container_name: papra
+    restart: unless-stopped
+    env_file:
+        - .env
+    ports:
+      - ${PAPRA_PORT}:1221
+    volumes:
+      - data:/app/app-data
+    labels:
+      tsdproxy.enable: "true"
+      tsdproxy.name: "papra"
+
+volumes:
+  data:
