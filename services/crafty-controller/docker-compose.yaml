@@ -1,0 +1,24 @@
+services:
+  crafty:
+    container_name: crafty-controller
+    image: registry.gitlab.com/crafty-controller/crafty-4:latest
+    restart: always
+    environment:
+      - TZ=Etc/UTC
+    ports:
+      - "8443:8443" # HTTPS
+      - "8123:8123" # DYNMAP
+      - "19132:19132/udp" # BEDROCK
+      - "25500-25600:25500-25600" # MC SERV PORT RANGE
+    volumes:
+      - ./data/backups:/crafty/backups
+      - ./data/logs:/crafty/logs
+      - ./data/servers:/crafty/servers
+      - ./data/config:/crafty/app/config
+      - ./data/import:/crafty/import
+    labels:
+      tsdproxy.enable: true
+      tsdproxy.name: "crafty-controller"
+      tsdproxy.container_port: 8443
+      tsdproxy.scheme: https
+      tsdproxy.tlsvalidate: false
